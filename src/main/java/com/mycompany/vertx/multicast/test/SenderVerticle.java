@@ -15,7 +15,6 @@ public class SenderVerticle extends Verticle {
 
         final Logger log = container.logger();
         final DatagramSocket socket = vertx.createDatagramSocket(InternetProtocolFamily.IPv4);
-        socket.setMulticastNetworkInterface("eth0");
 
         vertx.setPeriodic(1000, new Handler<Long>() {
 
@@ -33,7 +32,7 @@ public class SenderVerticle extends Verticle {
             }
         });
 
-        log.info("OrchestratorVerticle started local address: " + socket.localAddress());
+        log.info("SenderVerticle started local address");
 
     }
 }

@@ -15,9 +15,8 @@ public class ReceiverVerticle extends Verticle {
         final Logger log = container.logger();
 
         final DatagramSocket socket = vertx.createDatagramSocket(InternetProtocolFamily.IPv4);
-        socket.setMulticastLoopbackMode(true);
 
-        socket.listen("127.0.0.1", 6000, new Handler<AsyncResult<DatagramSocket>>() {
+        socket.listen("0.0.0.0", 6000, new Handler<AsyncResult<DatagramSocket>>() {
 
             @Override
             public void handle(AsyncResult<DatagramSocket> result) {
@@ -48,7 +47,7 @@ public class ReceiverVerticle extends Verticle {
             }
         });
 
-        log.info("DeviceVerticle started");
+        log.info("ReceiverVerticle started");
 
     }
 }
